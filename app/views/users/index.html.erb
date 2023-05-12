@@ -1,0 +1,43 @@
+<div class="container-fluid text-center">
+  <br>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th colspan="5"><h3>List of Users</h3></th>
+          </tr>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>profile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= image_tag(user.profile_url, alt: "user profile") %></td>
+              <td>
+                <%= link_to "Edit", edit_user_path(user), class:"btn btn-warning btn-sm" %>
+                &nbsp;&nbsp;
+                <%= link_to "Destroy", user_path(user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="row col-12 justify-content-center">
+        <%= link_to "Add new user", new_user_path, class:"btn btn-sm btn-primary" %>
+      </div>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>

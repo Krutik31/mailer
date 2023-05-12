@@ -1,0 +1,18 @@
+<br>
+<h3>Hola <%= @user.name %>,</h3>
+<p>
+  We have an update for you,
+  <br>
+  Your email address has been changed. your profile info is given below.
+  <br>
+  <br>
+  Username: <strong><%= @user.name %></strong>.
+  <br>
+  Old email address: <strong><%= @old_email %></strong>.
+  <br>
+  new email address: <strong><%= @user.email %></strong>.
+  <br>
+</p>
+<p>
+  To login to the site, just follow this link: <%= link_to 'userslisting.com', @url %>.
+</p>
